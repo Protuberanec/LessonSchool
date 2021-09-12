@@ -23,21 +23,62 @@ public:
 };
 
 using namespace std;
-int main()
-{
-    const int SIZE_AR = 10;
-    int tempAr[SIZE_AR];
-
-    int i = 0;
-    for (i = 0; i < SIZE_AR; i += 1 /* i++ */) {
-        tempAr[i] = i;
-    }
-
-    for (int i = 0; i < SIZE_AR; i += 1 /* i++ */) {
-        cout << tempAr[i] << " ";
+void cycle() {
+    for (int i = 10; i < 10; i++) {
+        cout << i << " ";
     }
 
     cout << endl;
+
+    cout << " while" << endl;
+    int i = 10;
+    while(i < 10) {
+        cout << i << " ";
+        i++;
+    }
+    cout << "\ndo while" << endl;
+    i = 10;
+    do {
+        cout << i << " ";
+        i++;
+    } while(i < 10);
+}
+int main()
+{
+    int indMax = 0;
+    int indMin = 0;
+
+    int a1 = 10;
+    int b1 = 20;
+
+    cout << "a1 = " << a1 << " b1 = " << b1 << endl;
+
+    int temp = a1;
+    a1 = b1;
+    b1 = temp;
+//    a1 = a1 + b1;
+//    b1 = a1 - b1;
+//    a1 = a1 - b1;
+
+    cout << "a1 = " << a1 << " b1 = " << b1 << endl;
+
+    int a[10] = {90, 89, 200, 100, 90, 24, 15, 89, 150, 99};
+    for (int j = 0; j < 10; j++) {
+        indMin = j;
+        for (int i = j; i < 10; i++) {
+            if (a[indMin] > a[i]) {
+                indMin = i;
+            }
+        }
+        int t = a[indMin];
+        a[indMin] = a[j];
+        a[j] = t;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        cout << a[i] << " ";
+    }
+
 
     return 0;
 }
